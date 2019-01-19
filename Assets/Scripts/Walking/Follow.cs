@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WalkTowardsTarget))]
+[RequireComponent(typeof(WalkTowardsTarget)), ExecuteInEditMode]
 public class Follow : MonoBehaviour
 {
 	public GameObject target;
@@ -15,6 +15,16 @@ public class Follow : MonoBehaviour
 	{
 		this.walkTowardsTargetBehaviour = GetComponent<WalkTowardsTarget>();
 		ChangeTarget(this.target);
+	}
+
+	void OnEnable()
+	{
+		this.walkTowardsTargetBehaviour.enabled = true;
+	}
+
+	void OnDisable()
+	{
+		this.walkTowardsTargetBehaviour.enabled = false;
 	}
 
 	void Update()
