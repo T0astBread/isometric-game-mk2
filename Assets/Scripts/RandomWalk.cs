@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(FeetPosition))]
 public class RandomWalk : MonoBehaviour
 {
 	public float sleepTimeMin = .3f;
@@ -12,10 +13,12 @@ public class RandomWalk : MonoBehaviour
 	public Vector2 feetOffset = Vector2.zero;
 
 	private Rigidbody2D rigidbody;
+	private FeetPosition feet;
 
 	IEnumerator Start()
 	{
 		this.rigidbody = GetComponent<Rigidbody2D>();
+		this.feet = GetComponent<FeetPosition>();
 
 		while(true)
 		{
@@ -34,8 +37,7 @@ public class RandomWalk : MonoBehaviour
 
 	void Update()
 	{
-		var feetPosition = (Vector2)transform.position + this.feetOffset;
-		var raycastOrigin2D = feetPosition + this.rigidbody.velocity.normalized * .1f; // where the feet will be in .1 units
+		var raycastOrigin2D = this.feet.feetPosition + this.rigidbody.velocity.normalized * .1f; // where the feet will be in .1 units
 
 		var raycastOrigin = new Vector3(raycastOrigin2D.x, raycastOrigin2D.y, 2);
 		var ray = new Ray(raycastOrigin, Vector3.back);
@@ -50,6 +52,6 @@ public class RandomWalk : MonoBehaviour
 			debugLineColor = Color.red;
 		}
 
-		Debug.DrawLine(feetPosition, raycastOrigin2D, debugLineColor);
+		Debug.DrawLine(this.feet.feetPosition, raycastOrigin2D, debugLineColor);
 	}
 }
