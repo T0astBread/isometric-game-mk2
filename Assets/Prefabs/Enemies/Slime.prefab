@@ -38,7 +38,9 @@ GameObject:
   - component: {fileID: 95298722306465836}
   - component: {fileID: 50456984652909018}
   - component: {fileID: 114787560159768398}
-  - component: {fileID: 114639816451660518}
+  - component: {fileID: 114481633152506278}
+  - component: {fileID: 114290233347093990}
+  - component: {fileID: 114812512801468174}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923598773675718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.35, y: 3.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4335129836014828}
@@ -111,7 +113,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114639816451660518
+--- !u!114 &114290233347093990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8238017574d42414e8f9a1898378e60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114481633152506278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2b912320d770a4db0f89a20e056d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityOfWalking: 0.2
-  walkSpeed: 3
+  sleepTimeMin: 0.3
+  sleepTimeMax: 3
+  walkTimeMin: 0.3
+  walkTimeMax: 3
+  walkSpeed: 1
+  feetOffset: {x: 0, y: -0.5}
 --- !u!114 &114787560159768398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +156,17 @@ MonoBehaviour:
   northWestAC: {fileID: 22100000, guid: ea213741390582946aecf8ba87b88ca5, type: 2}
   southEastAC: {fileID: 22100000, guid: 4dcd6eadc9fbe224b888a856f7a08288, type: 2}
   southWestAC: {fileID: 22100000, guid: b8a4c9c1dc2035f4a92857dc8aad8dd1, type: 2}
+--- !u!114 &114812512801468174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c61aacfa887c941b3f50dbd96361ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   threshold: 0.01
 --- !u!212 &212539765179092638
 SpriteRenderer:

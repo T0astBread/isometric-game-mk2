@@ -9,13 +9,10 @@ public class MovementControls : MonoBehaviour
 	public bool canMove = true;
 
 	private Rigidbody2D rigidbody;
-	private Animator animator;
 
-	// Use this for initialization
 	void Start()
 	{
 		this.rigidbody = GetComponent<Rigidbody2D>();
-		this.animator = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -36,17 +33,10 @@ public class MovementControls : MonoBehaviour
 		}
 		
 		UpdateRigidBody(velocity);
-		UpdateAnimator(velocity);
 	}
 
 	private void UpdateRigidBody(Vector2 velocity)
 	{
 		this.rigidbody.velocity = velocity;
-	}
-
-	private void UpdateAnimator(Vector2 velocity)
-	{
-		this.animator.SetFloat("velocity_x", velocity.x);
-		this.animator.SetFloat("velocity_y", velocity.y);
 	}
 }
