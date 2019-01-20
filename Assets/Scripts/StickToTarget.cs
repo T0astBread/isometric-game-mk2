@@ -5,6 +5,7 @@ using UnityEngine;
 public class StickToTarget : MonoBehaviour
 {
 	public GameObject target;
+	public Vector2 offset;
 	public float maxDistance;
 
 	private Rigidbody2D rigidbody;
@@ -20,7 +21,7 @@ public class StickToTarget : MonoBehaviour
 	{
 		if (this.targetMovementControls == null || this.targetMovementControls.canMove)
 		{
-			var distanceVec = (Vector2)(this.target.transform.position - transform.position);
+			var distanceVec = (Vector2)(this.target.transform.position - transform.position) + this.offset;
 			float distance = distanceVec.magnitude;
 			float distanceToMove = distance - this.maxDistance;
 

@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 2423368649
+    locked: 0
   - name: Entities
     uniqueID: 3666410501
     locked: 0
