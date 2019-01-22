@@ -180,6 +180,21 @@ public class Attack : MonoBehaviour
 		}
 	}
 
+	public static Type FromIndex(int index)
+	{
+		switch (index)
+		{
+			case 0:
+				return Type.FORCE;
+			case 1:
+				return Type.MAGIC;
+			case 2:
+				return Type.DEFENSE;
+			default:
+				throw new ArgumentOutOfRangeException("There is no attack type for index " + index);
+		}
+	}
+
 	public static int CompareAttacks(Type attackType1, Type attackType2)
 	{
 		if (attackType1 == null || attackType2 == null || attackType1 == attackType2)

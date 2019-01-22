@@ -81,6 +81,8 @@ GameObject:
   - component: {fileID: 114290233347093990}
   - component: {fileID: 114812512801468174}
   - component: {fileID: 114204565477314580}
+  - component: {fileID: 114182330779631430}
+  - component: {fileID: 114447192031061802}
   - component: {fileID: 114607363321150408}
   - component: {fileID: 114247573424944118}
   m_Layer: 0
@@ -322,6 +324,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e08235eac195904b8eef584514fdaae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114182330779631430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db2f30bedafe454092a8b2a6c930c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  minDistanceForAttack: 1.5
 --- !u!114 &114188416845358594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,8 +364,10 @@ MonoBehaviour:
   baseDamage: 1
   effectConnectionRedPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
     type: 2}
-  effectConnectionGreenPrefab: {fileID: 0}
-  effectConnectionBluePrefab: {fileID: 0}
+  effectConnectionGreenPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
+    type: 2}
+  effectConnectionBluePrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
+    type: 2}
 --- !u!114 &114219407051700644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,6 +400,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8238017574d42414e8f9a1898378e60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114447192031061802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4bd999b2743e841a995fcf1b70e750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114481633152506278
