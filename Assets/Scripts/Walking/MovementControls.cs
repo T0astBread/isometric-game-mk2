@@ -8,6 +8,7 @@ public class MovementControls : MonoBehaviour
 	public float movementSpeed = 5f;
 	public bool canMove = true;
 
+	private Move move;
 	private Animator animator;
 	private Rigidbody2D rigidbody;
 
