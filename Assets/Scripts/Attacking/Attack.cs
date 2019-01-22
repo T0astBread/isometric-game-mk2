@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Attack : MonoBehaviour
 {
 	public float baseAttackDuration = 1;
 	public int baseDamage = 1;
 	public GameObject effectConnectionRedPrefab, effectConnectionGreenPrefab, effectConnectionBluePrefab;
 
+	private Health health;
 	private Collider2D attackHitbox;
 	private Animator animator;
 	private FaceMouseCursor faceMouseCursorBehaviour;
@@ -21,6 +23,7 @@ public class Attack : MonoBehaviour
 
 	void Start()
 	{
+		this.health = GetComponent<Health>();
 		this.attackHitbox = transform.Find("AttackHitbox").GetComponent<Collider2D>();
 		this.animator = GetComponent<Animator>();
 		this.faceMouseCursorBehaviour = GetComponent<FaceMouseCursor>();
@@ -43,18 +46,21 @@ public class Attack : MonoBehaviour
 		if (attackComparison == 0)
 		{
 			// Take damage
+			this.health.hp -= damage;
 			Debug.Log(gameObject.name + " took " + damage + " damage!");
 		}
 		else if (attackComparison > 0)
 		{
 			// Take damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
+			this.health.hp -= damage;
 			Debug.Log(gameObject.name + " took " + damage + " damage!");
 		}
 		else if (attackComparison < 0)
 		{
 			// Deal damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
+			attacker.health.hp -= damage;
 			Debug.Log(attacker.gameObject.name + " took " + damage + " damage!");
 		}
 	}
