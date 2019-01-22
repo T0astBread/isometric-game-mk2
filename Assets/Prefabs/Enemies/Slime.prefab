@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37c1546b933a3748a57f582cea973d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAttackDuration: 1
+  baseAttackDuration: 0.5
   baseDamage: 1
   effectConnectionRedPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
     type: 2}

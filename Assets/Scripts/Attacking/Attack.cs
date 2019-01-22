@@ -149,7 +149,7 @@ public class Attack : MonoBehaviour
 	private IEnumerator UpdateAnimator(Type attackType, float attackDuration)
 	{
 		this.animator.SetInteger("active_attack_type", IndexOf(attackType));
-		this.animator.SetFloat("active_attack_duration", attackDuration);
+		this.animator.SetFloat("active_attack_duration", 1 / attackDuration);
 		yield return new WaitForSeconds(attackDuration);
 		this.animator.SetInteger("active_attack_type", -1);
 	}
