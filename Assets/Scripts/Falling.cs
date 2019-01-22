@@ -11,8 +11,8 @@ public class Falling : MonoBehaviour
 
 	void Start()
 	{
-		this.animator = GetComponent<Animator>();
-		this.deathBehaviour = GetComponent<Death>();
+		this.animator = GetComponentInParent<Animator>();
+		this.deathBehaviour = GetComponentInParent<Death>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

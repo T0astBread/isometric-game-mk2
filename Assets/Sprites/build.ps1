@@ -11,6 +11,15 @@ function SaveAllAsPng ($folder) {
 	}
 }
 
+function SaveAllAsSpritesheet ($folder) {
+	foreach ($file in ls .\AsepriteFiles\$folder) {
+		$file -match "(.+)\.aseprite"  # Match against a file name regex
+		$base_file_name = $Matches[1]  # Get the file name without extension
+	
+		Aseprite.exe -b .\AsepriteFiles\$folder\$file --sheet .\Generated\$folder\$base_file_name".png" --data .\Generated\$folder\$base_file_name".json"
+	}
+}
+
 # Save the Aseprite files that belong to the tiles as .png
 SaveAllAsPng("Tiles")
 
@@ -24,3 +33,6 @@ Aseprite.exe -b .\AsepriteFiles\player.aseprite --sheet .\Generated\player_sprit
 
 # Save the UI sprites as .png
 SaveAllAsPng("UI")
+
+# Save the effect sprites as .png
+SaveAllAsSpritesheet("Effects")

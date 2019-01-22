@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - AttackRecievingHitbox
+  - FeetHitbox
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Backdrop
+    uniqueID: 2423368649
     locked: 0
   - name: Entities
     uniqueID: 3666410501

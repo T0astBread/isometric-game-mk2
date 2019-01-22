@@ -1,0 +1,12 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EffectRayAC_Blue
+  m_Controller: {fileID: 9100000, guid: 5a88fdb4f53923a4ba2888b3930d12b9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 253dfb0ae27a4464e9d53051670de495, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f17f165f3efaa754ab19ec81379e4ccb, type: 2}

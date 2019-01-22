@@ -8,18 +8,20 @@ public class MovementControls : MonoBehaviour
 	public float movementSpeed = 5f;
 	public bool canMove = true;
 
+	private Animator animator;
 	private Rigidbody2D rigidbody;
 
 	void Start()
 	{
+		this.animator = GetComponent<Animator>();
 		this.rigidbody = GetComponent<Rigidbody2D>();
 	}
 
 	void Update()
 	{
-		Vector2 velocity;
+		Vector2 velocity = Vector2.zero;
 
-		if (this.canMove)
+		if (!Utils.IsAttackingOrDying(this.animator) && this.canMove)
 		{
 			var velX = Input.GetAxis("Horizontal");
 			var velY = Input.GetAxis("Vertical");
@@ -27,11 +29,7 @@ public class MovementControls : MonoBehaviour
 			velocity = new Vector2(velX, velY);
 			velocity = velocity.normalized * this.movementSpeed;
 		}
-		else
-		{
-			velocity = Vector2.zero;
-		}
-		
+
 		UpdateRigidBody(velocity);
 	}
 

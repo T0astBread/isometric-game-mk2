@@ -7,7 +7,8 @@ public class Death : MonoBehaviour
 	public void Die()
 	{
 		DisableMovement();
-		Debug.Log("Dead");
+		SendDieTrigger();
+		Debug.Log(gameObject.name + " is dead");
 	}
 
 	private void DisableMovement()
@@ -17,5 +18,10 @@ public class Death : MonoBehaviour
 		{
 			movementBehaviour.canMove = false;
 		}
+	}
+
+	private void SendDieTrigger()
+	{
+		GetComponent<Animator>().SetTrigger("die");
 	}
 }

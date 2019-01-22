@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(FeetPosition))]
+[RequireComponent(typeof(Animator)), RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(FeetPosition))]
 public class WalkTowardsTarget : MonoBehaviour
 {
 	public Vector2 target;
@@ -10,19 +10,28 @@ public class WalkTowardsTarget : MonoBehaviour
 	public float movementSpeed = 5;
 	public float stopDistance = 1;
 
-	private Rigidbody2D rigidbody;
+	private Animator animator;
+	private new Rigidbody2D rigidbody;
 	private FeetPosition feet;
 
 	void Start()
 	{
+		this.animator = GetComponent<Animator>();
 		this.rigidbody = GetComponent<Rigidbody2D>();
 		this.feet = GetComponent<FeetPosition>();
 	}
 
 	void Update()
 	{
-		PointVelocityToTarget();
-		TurnVelocityToStayGrounded();
+		if(Utils.IsAttackingOrDying(this.animator))
+		{
+			this.rigidbody.velocity = Vector2.zero;
+		}
+		else
+		{
+			PointVelocityToTarget();
+			TurnVelocityToStayGrounded();
+		}
 	}
 
 	private void PointVelocityToTarget()
