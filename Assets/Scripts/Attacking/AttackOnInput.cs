@@ -14,7 +14,11 @@ public class AttackOnInput : MonoBehaviour
 
 	void Update()
 	{
-		if(Input.GetMouseButtonDown(0))
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			this.attack.DoAttack(Attack.Type.DEFENSE);
+		}
+		else if(Input.GetMouseButtonDown(0))
 		{
 			this.attack.DoAttack(Attack.Type.FORCE);
 		}
