@@ -141,6 +141,10 @@ public class Attack : MonoBehaviour
 		{
 			case Type.FORCE:
 				return this.effectConnectionRed;
+			case Type.MAGIC:
+				return this.effectConnectionGreen;
+			case Type.DEFENSE:
+				return this.effectConnectionBlue;
 			default:
 				return this.effectConnectionRed;
 		}

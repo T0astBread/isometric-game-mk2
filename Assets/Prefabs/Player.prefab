@@ -366,9 +366,9 @@ MonoBehaviour:
   baseDamage: 1
   effectConnectionRedPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
     type: 2}
-  effectConnectionGreenPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
+  effectConnectionGreenPrefab: {fileID: 1390426186884264, guid: b27c54b8e04cd5d4a8e5d0100587cb5a,
     type: 2}
-  effectConnectionBluePrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
+  effectConnectionBluePrefab: {fileID: 1390426186884264, guid: ae277bec7b0ca4e4aa0d27b64e4e15a5,
     type: 2}
 --- !u!114 &114707551541283342
 MonoBehaviour:
