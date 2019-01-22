@@ -8,7 +8,6 @@ public class MovementControls : MonoBehaviour
 	public float movementSpeed = 5f;
 	public bool canMove = true;
 
-	private Move move;
 	private Animator animator;
 	private Rigidbody2D rigidbody;
 
@@ -20,12 +19,9 @@ public class MovementControls : MonoBehaviour
 
 	void Update()
 	{
-		var animatorStateInfo = this.animator.GetCurrentAnimatorStateInfo(this.animator.GetLayerIndex("Base Layer"));
-		bool isAttacking = animatorStateInfo.IsTag("Attacking");
-
 		Vector2 velocity = Vector2.zero;
 
-		if (!isAttacking && this.canMove)
+		if (!Utils.IsAttackingOrDying(this.animator) && this.canMove)
 		{
 			var velX = Input.GetAxis("Horizontal");
 			var velY = Input.GetAxis("Vertical");

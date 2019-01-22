@@ -880,7 +880,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 317d77c9e9b622b4ba89b78a44117167, type: 2}
-  m_Tag: 
+  m_Tag: Dying
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -905,7 +905,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 58fcd6d02645bca449ba6f9696bd995d, type: 2}
-  m_Tag: 
+  m_Tag: Dying
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
