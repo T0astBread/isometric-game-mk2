@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
 	{
 		get
 		{
-			return this.hp / this.maxHp;
+			return (float) this.hp / this.maxHp;
 		}
 	}
 
