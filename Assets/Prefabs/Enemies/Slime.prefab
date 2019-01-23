@@ -368,6 +368,8 @@ MonoBehaviour:
     type: 2}
   effectConnectionBluePrefab: {fileID: 1390426186884264, guid: ae277bec7b0ca4e4aa0d27b64e4e15a5,
     type: 2}
+  damagePopupPrefab: {fileID: 1381046256375618, guid: 6193782fb91ba664d8de076bc6dad044,
+    type: 2}
 --- !u!114 &114219407051700644
 MonoBehaviour:
   m_ObjectHideFlags: 1
