@@ -9,12 +9,14 @@ public class Attack : MonoBehaviour
 	public float baseAttackDuration = 1;
 	public int baseDamage = 1;
 	public GameObject effectConnectionRedPrefab, effectConnectionGreenPrefab, effectConnectionBluePrefab;
+	public GameObject damagePopupPrefab;
 
 	private Health health;
 	private Collider2D attackHitbox;
 	private Animator animator;
 	private FaceMouseCursor faceMouseCursorBehaviour;
 	private EffectConnection effectConnectionRed, effectConnectionGreen, effectConnectionBlue;
+	private GameObject worldSpaceCanvas;
 
 	private Collider2D[] hitBuffer = new Collider2D[100];
 	private int targetsHit;
@@ -27,6 +29,7 @@ public class Attack : MonoBehaviour
 		this.attackHitbox = transform.Find("AttackHitbox").GetComponent<Collider2D>();
 		this.animator = GetComponent<Animator>();
 		this.faceMouseCursorBehaviour = GetComponent<FaceMouseCursor>();
+		this.worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas");
 
 		this.effectConnectionRed = this.effectConnectionRedPrefab.GetComponent<EffectConnection>();
 		this.effectConnectionGreen = this.effectConnectionGreenPrefab.GetComponent<EffectConnection>();
@@ -46,23 +49,34 @@ public class Attack : MonoBehaviour
 		if (attackComparison == 0)
 		{
 			// Take damage
-			this.health.hp -= damage;
-			Debug.Log(gameObject.name + " took " + damage + " damage!");
+			RecieveDamage(damage);
 		}
 		else if (attackComparison > 0)
 		{
 			// Take damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
-			this.health.hp -= damage;
-			Debug.Log(gameObject.name + " took " + damage + " damage!");
+			RecieveDamage(damage);
 		}
 		else if (attackComparison < 0)
 		{
 			// Deal damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
-			attacker.health.hp -= damage;
-			Debug.Log(attacker.gameObject.name + " took " + damage + " damage!");
+			attacker.RecieveDamage(damage);
 		}
+	}
+
+	public void RecieveDamage(int damage)
+	{
+		this.health.hp -= damage;
+		ShowDamageVisuals(damage);
+		Debug.Log(gameObject.name + " took " + damage + " damage!");
+	}
+
+	private void ShowDamageVisuals(int damage)
+	{
+		var damagePopup = GameObject.Instantiate(this.damagePopupPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+		damagePopup.GetComponent<DamagePopup>().damagePointsToShow = damage;
+		damagePopup.transform.parent = this.worldSpaceCanvas.transform;
 	}
 
 	public void DoAttack(Type type)
