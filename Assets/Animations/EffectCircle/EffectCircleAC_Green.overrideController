@@ -8,5 +8,5 @@ AnimatorOverrideController:
   m_Name: EffectCircleAC_Green
   m_Controller: {fileID: 9100000, guid: 33811fc1e234f474eba1d8a884844ddd, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 4ed4614f84c01b940966c940bc145e72, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8ae332e71dd155143963354be358001c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 8384ff28602547e4d8bca3e1af8b56fd, type: 2}
