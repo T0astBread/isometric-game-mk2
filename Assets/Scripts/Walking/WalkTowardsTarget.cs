@@ -23,14 +23,14 @@ public class WalkTowardsTarget : MonoBehaviour
 
 	void Update()
 	{
-		if(Utils.IsAttackingOrDying(this.animator))
-		{
-			this.rigidbody.velocity = Vector2.zero;
-		}
-		else
+		if(this.animator.GetInteger("movement_locks") <= 0)
 		{
 			PointVelocityToTarget();
 			TurnVelocityToStayGrounded();
+		}
+		else if(this.animator.GetInteger("velocity_write_locks") <= 0)
+		{
+			this.rigidbody.velocity = Vector2.zero;
 		}
 	}
 
@@ -50,9 +50,12 @@ public class WalkTowardsTarget : MonoBehaviour
 
 	private void TurnVelocityToStayGrounded()
 	{
-		while(!WillBeGrounded())
+		int degreesRotated = 0;
+		int degreesPerRotation = 5;
+		while(!WillBeGrounded() && degreesRotated < 360)
 		{
-			this.rigidbody.velocity = this.rigidbody.velocity.Rotate(5);
+			degreesRotated += degreesPerRotation;
+			this.rigidbody.velocity = this.rigidbody.velocity.Rotate(degreesPerRotation);
 		}
 	}
 

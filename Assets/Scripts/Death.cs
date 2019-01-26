@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+	private Animator animator;
+
+	void Start()
+	{
+		this.animator = GetComponent<Animator>();
+	}
+
 	public void Die()
 	{
 		DisableMovement();
@@ -13,15 +20,11 @@ public class Death : MonoBehaviour
 
 	private void DisableMovement()
 	{
-		var movementBehaviour = GetComponent<MovementControls>();
-		if(movementBehaviour != null)
-		{
-			movementBehaviour.canMove = false;
-		}
+		this.animator.IncrementCounter("movement_locks");
 	}
 
 	private void SendDieTrigger()
 	{
-		GetComponent<Animator>().SetTrigger("die");
+		this.animator.SetTrigger("die");
 	}
 }

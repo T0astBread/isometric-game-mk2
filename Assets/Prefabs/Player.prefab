@@ -81,6 +81,8 @@ GameObject:
   - component: {fileID: 114999744588818584}
   - component: {fileID: 114454420510110518}
   - component: {fileID: 114723501823975500}
+  - component: {fileID: 114882702389452392}
+  - component: {fileID: 114889504200533524}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -382,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseAttackDuration: 0.25
   baseDamage: 1
+  knockbackMultiplier: 100
   effectConnectionRedPrefab: {fileID: 1390426186884264, guid: 8e214965d4f5fba4db15f5740122c154,
     type: 2}
   effectConnectionGreenPrefab: {fileID: 1390426186884264, guid: b27c54b8e04cd5d4a8e5d0100587cb5a,
@@ -462,6 +465,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8238017574d42414e8f9a1898378e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114882702389452392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269077609220062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9de86bae8adfc4cae4102550ff5988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114889504200533524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269077609220062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7ded777adedd64d9a3a2149a1aeab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minKnockbackStrength: 200
+  maxKnockbackStrength: 1000
 --- !u!114 &114938338977788546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,7 +501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  canMove: 1
 --- !u!114 &114999744588818584
 MonoBehaviour:
   m_ObjectHideFlags: 1

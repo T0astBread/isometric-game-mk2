@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Health)), RequireComponent(typeof(Knockback))]
 public class Attack : MonoBehaviour
 {
 	public float baseAttackDuration = 1;
 	public int baseDamage = 1;
+	public float knockbackMultiplier = 1000;
 	public GameObject effectConnectionRedPrefab, effectConnectionGreenPrefab, effectConnectionBluePrefab;
 	public GameObject damagePopupPrefab;
 
 	private Health health;
 	private Collider2D attackHitbox;
 	private Animator animator;
+	private new Rigidbody2D rigidbody;
 	private FaceMouseCursor faceMouseCursorBehaviour;
+	private Knockback knockbackBehaviour;
 	private EffectConnection effectConnectionRed, effectConnectionGreen, effectConnectionBlue;
 	private GameObject worldSpaceCanvas;
 
@@ -29,6 +32,7 @@ public class Attack : MonoBehaviour
 		this.attackHitbox = transform.Find("AttackHitbox").GetComponent<Collider2D>();
 		this.animator = GetComponent<Animator>();
 		this.faceMouseCursorBehaviour = GetComponent<FaceMouseCursor>();
+		this.knockbackBehaviour = GetComponent<Knockback>();
 		this.worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas");
 
 		this.effectConnectionRed = this.effectConnectionRedPrefab.GetComponent<EffectConnection>();
@@ -49,20 +53,32 @@ public class Attack : MonoBehaviour
 		if (attackComparison == 0)
 		{
 			// Take damage
-			RecieveDamage(damage);
+			RecieveDamageWithRelativeKnockback(damage, attacker.transform.position);
 		}
 		else if (attackComparison > 0)
 		{
 			// Take damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
-			RecieveDamage(damage);
+			RecieveDamageWithRelativeKnockback(damage, attacker.transform.position);
 		}
 		else if (attackComparison < 0)
 		{
 			// Deal damage * 1.5
 			damage = Mathf.RoundToInt(damage * 1.5f);
-			attacker.RecieveDamage(damage);
+			attacker.RecieveDamageWithRelativeKnockback(damage, transform.position);
 		}
+	}
+
+	public void RecieveDamageWithRelativeKnockback(int damage, Vector2 knockbackOrigin)
+	{
+		float knockbackStrength = (float) damage / this.health.maxHp * this.knockbackMultiplier;
+		RecieveDamageWithKnockback(damage, knockbackOrigin, knockbackStrength);
+	}
+
+	public void RecieveDamageWithKnockback(int damage, Vector2 knockbackOrigin, float knockbackStrength)
+	{
+		RecieveDamage(damage);
+		this.knockbackBehaviour.ApplyKnockback(knockbackOrigin, knockbackStrength);
 	}
 
 	public void RecieveDamage(int damage)
@@ -88,7 +104,7 @@ public class Attack : MonoBehaviour
 	{
 		if (CanAttack())
 		{
-			SetFaceMouseCursorEnabled(false);
+			SetMovmentAndMouseCursorFacingEnabled(false);
 			PerformTargetHitCollision();
 			DealDamage(type);
 
@@ -98,7 +114,7 @@ public class Attack : MonoBehaviour
 			StartCoroutine(UpdateAnimator(type, this.baseAttackDuration));
 			yield return ShowAttackVisuals(effectsForType, this.baseAttackDuration);
 
-			SetFaceMouseCursorEnabled(true);
+			SetMovmentAndMouseCursorFacingEnabled(true);
 		}
 	}
 
@@ -108,8 +124,9 @@ public class Attack : MonoBehaviour
 		return animatorStateInfo.IsName("Idling") || animatorStateInfo.IsName("Walking");
 	}
 
-	private void SetFaceMouseCursorEnabled(bool enabled)
+	private void SetMovmentAndMouseCursorFacingEnabled(bool enabled)
 	{
+		this.animator.ModifyCounter("movement_locks", !enabled);
 		if (this.faceMouseCursorBehaviour != null)
 		{
 			this.faceMouseCursorBehaviour.enabled = enabled;

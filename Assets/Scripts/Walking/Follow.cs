@@ -9,7 +9,7 @@ public class Follow : MonoBehaviour
 
 
 	private WalkTowardsTarget walkTowardsTargetBehaviour;
-	private MovementControls targetMovementControls;
+	private Animator targetAnimator;
 
 	void Start()
 	{
@@ -29,7 +29,7 @@ public class Follow : MonoBehaviour
 
 	void Update()
 	{
-		bool shouldFollow = this.target != null && (this.targetMovementControls == null || this.targetMovementControls.canMove);
+		bool shouldFollow = this.target != null && (this.targetAnimator == null || this.targetAnimator.GetInteger("movement_locks") <= 0);
 		if (shouldFollow)
 		{
 			this.walkTowardsTargetBehaviour.target = this.target.transform.position;
@@ -42,7 +42,7 @@ public class Follow : MonoBehaviour
 		this.target = target;
 		if(this.target != null)
 		{
-			this.targetMovementControls = this.target.GetComponent<MovementControls>();
+			this.targetAnimator = this.target.GetComponent<Animator>();
 		}
 	}
 }
