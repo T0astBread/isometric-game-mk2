@@ -33,7 +33,7 @@ public class Falling : MonoBehaviour
 			{
 				this.animator.SetBool("is_falling", true);
 				this.animator.IncrementCounter("movement_locks");
-				this.deathBehaviour.Die();
+				this.deathBehaviour.Die("Consumed by the depths");
 			}
 		}
 	}

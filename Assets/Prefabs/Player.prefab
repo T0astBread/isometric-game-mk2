@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7926e745411d834438267935555c3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateDeathScreen: 1
 --- !u!114 &114454420510110518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ded777adedd64d9a3a2149a1aeab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minKnockbackStrength: 200
+  minKnockbackStrength: 100
   maxKnockbackStrength: 1000
 --- !u!114 &114938338977788546
 MonoBehaviour:
