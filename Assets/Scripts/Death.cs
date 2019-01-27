@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Death : MonoBehaviour
@@ -14,7 +15,9 @@ public class Death : MonoBehaviour
 	void Start()
 	{
 		this.animator = GetComponent<Animator>();
-		this.deathScreen = Resources.FindObjectsOfTypeAll<DeathScreen>()[0];
+
+		this.deathScreen = Resources.FindObjectsOfTypeAll<DeathScreen>()  // Get the first DeathScreen that's not a prefab (detects inactive objects)
+			.First(ds => ds.gameObject.scene.name != null);  // This is to check if it's not a prefab but an instance
 	}
 
 	public void Die(string causeOfDeath = DeathScreen.DEFAULT_CAUSE_OF_DEATH)

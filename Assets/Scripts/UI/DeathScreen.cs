@@ -42,6 +42,5 @@ public class DeathScreen : MonoBehaviour
 	{
 		this.causeOfDeath = newValue;
 		this.causeOfDeathLabel.text = this.causeOfDeath;
-		this.causeOfDeathLabel.gameObject.SetActive(true);
 	}
 }

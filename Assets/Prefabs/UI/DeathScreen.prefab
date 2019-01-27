@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1166826596068432
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 224682175945438734}
   - component: {fileID: 222476259772723818}
   - component: {fileID: 114369072365963840}
+  - component: {fileID: 114277431450194102}
   m_Layer: 0
   m_Name: ContinueLabel
   m_TagString: Untagged
@@ -96,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &95880655638911928
 Animator:
   serializedVersion: 3
@@ -229,6 +230,18 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114277431450194102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667203023640004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2895cb6852c3df949acf816e222c5da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: r
 --- !u!114 &114369072365963840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +261,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press enter to continue...
+  m_text: Press R to continue...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a359c518b30411e469986aa4a95c5d85, type: 2}
   m_sharedMaterial: {fileID: 21336883347046758, guid: a359c518b30411e469986aa4a95c5d85,
@@ -382,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336e7ea82530e714bbc4b09018a07e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  causeOfDeath: For whatever reason
+  causeOfDeath: Consumed by the depths
   darkBackdropPrefab: {fileID: 1599312163455534, guid: c0a7c6f36a481db449f6d630586a1699,
     type: 2}
 --- !u!114 &114975002492743728
@@ -404,7 +417,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Your cause of death is shown here
+  m_text: Died in battle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a359c518b30411e469986aa4a95c5d85, type: 2}
   m_sharedMaterial: {fileID: 21336883347046758, guid: a359c518b30411e469986aa4a95c5d85,
@@ -486,7 +499,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
