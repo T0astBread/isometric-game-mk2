@@ -16,16 +16,17 @@ public class DeathScreen : MonoBehaviour
 
 	void Start()
 	{
-		this.causeOfDeathLabel = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>()
-			.First(label => label.gameObject.name == "CauseOfDeathLabel");
+		this.causeOfDeathLabel = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>()  // Select from all TextMeshPro labels (including prefabs)
+			.Where(label => label.gameObject.scene.name != null)  // Filter out prefabs
+			.Single(label => label.gameObject.name == "CauseOfDeathLabel");  // Find the CauseOfDeathLabel
 		ChangeCauseOfDeath(this.causeOfDeath);
 	}
 
 	public void Show(string causeOfDeath = DEFAULT_CAUSE_OF_DEATH)
 	{
 		SpawnDarkBackdrop();
-		gameObject.SetActive(true);
 		ChangeCauseOfDeath(causeOfDeath);
+		gameObject.SetActive(true);
 	}
 
 	private void SpawnDarkBackdrop()
