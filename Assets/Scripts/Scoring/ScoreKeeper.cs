@@ -19,7 +19,6 @@ public class ScoreKeeper : MonoBehaviour
 
 	void Start()
 	{
-		DontDestroyOnLoad(gameObject);
 		this.highScore = PlayerPrefs.GetInt("high_score");
 	}
 
@@ -36,12 +35,18 @@ public class ScoreKeeper : MonoBehaviour
 		Debug.Log("Added " + amount + " to score resulting in a total of " + this.score + " (previously " + prevScore + ")");
 	}
 
-	// public void DivideScore(float divisor)
-	// {
-	// 	int prevScore = this.score;
-	// 	this.score = Mathf.FloorToInt(this.score / divisor);
-	// 	Debug.Log("Divided score by " + divisor + " resulting in a new score of " + this.score + " (previously " + prevScore + ")");
-	// }
+	public void DivideScore(float divisor)
+	{
+		int prevScore = this.score;
+		this.score = Mathf.FloorToInt(this.score / divisor);
+		Debug.Log("Divided score by " + divisor + " resulting in a new score of " + this.score + " (previously " + prevScore + ")");
+	}
+
+	public void ResetScore()
+	{
+		Debug.Log("Reset score to zero (previously " + this.score + ")");
+		this.score = 0;
+	}
 
 	public bool HighScoreIsOvertaken()
 	{
