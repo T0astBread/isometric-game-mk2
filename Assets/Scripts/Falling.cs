@@ -32,6 +32,7 @@ public class Falling : MonoBehaviour
 			if (this.groundTilesTouched == 0)
 			{
 				this.animator.SetBool("is_falling", true);
+				this.animator.IncrementCounter("movement_locks");
 				this.deathBehaviour.Die();
 			}
 		}

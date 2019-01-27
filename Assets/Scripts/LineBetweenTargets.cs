@@ -10,7 +10,7 @@ public class LineBetweenTargets : MonoBehaviour
 
 	private LineRenderer lineRenderer;
 	private List<GameObject> targets;
-	private List<MovementControls> targetMovementControlBehaviours;
+	private List<Animator> targetAnimators;
 	private List<Vector3> targetFeetOffsets;
 
 	void Start()
@@ -18,9 +18,9 @@ public class LineBetweenTargets : MonoBehaviour
 		this.lineRenderer = GetComponent<LineRenderer>();
 
 		this.targets = new List<GameObject> { this.t1, this.t2 };
-		this.targetMovementControlBehaviours = this.targets
-			.Select(target => target.GetComponent<MovementControls>())
-			.Where(movControls => movControls != null)
+		this.targetAnimators = this.targets
+			.Select(target => target.GetComponent<Animator>())
+			.Where(animator => animator != null)
 			.ToList();
 		this.targetFeetOffsets = this.targets
 			.Select(target => new
@@ -47,6 +47,6 @@ public class LineBetweenTargets : MonoBehaviour
 
 	private bool AllTargetsCanMove()
 	{
-		return this.targetMovementControlBehaviours.All(movControl => movControl.canMove);
+		return this.targetAnimators.All(animator => animator.GetInteger("movement_locks") <= 0);
 	}
 }

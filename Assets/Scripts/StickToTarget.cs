@@ -9,7 +9,7 @@ public class StickToTarget : MonoBehaviour
 	public float maxDistance;
 
 	private Rigidbody2D rigidbody;
-	private MovementControls targetMovementControls;
+	private Animator targetAnimator;
 
 	void Start()
 	{
@@ -19,8 +19,8 @@ public class StickToTarget : MonoBehaviour
 
 	void Update()
 	{
-		if (this.targetMovementControls == null || this.targetMovementControls.canMove)
-		{
+		// if (this.targetAnimator == null || this.targetAnimator.GetBool("can_move"))
+		// {
 			var distanceVec = (Vector2)(this.target.transform.position - transform.position) + this.offset;
 			float distance = distanceVec.magnitude;
 			float distanceToMove = distance - this.maxDistance;
@@ -30,12 +30,12 @@ public class StickToTarget : MonoBehaviour
 				distanceVec = distanceVec.normalized * distanceToMove;
 				transform.position += new Vector3(distanceVec.x, distanceVec.y, 0);
 			}
-		}
+		// }
 	}
 
 	public void ChangeTarget(GameObject target)
 	{
 		this.target = target;
-		this.targetMovementControls = this.target.GetComponent<MovementControls>();
+		this.targetAnimator = this.target.GetComponent<Animator>();
 	}
 }
