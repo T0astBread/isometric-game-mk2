@@ -22,7 +22,7 @@ public class ScoreKeeper : MonoBehaviour
 		this.highScore = PlayerPrefs.GetInt("high_score");
 	}
 
-	void OnApplicationQuit()
+	void OnDestroy()
 	{
 		Debug.Log("Saving highscore to PlayerPrefs...");
 		UpdateHighScoreInPlayerPrefs();
