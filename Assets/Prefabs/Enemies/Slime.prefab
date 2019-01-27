@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 114447192031061802}
   - component: {fileID: 114607363321150408}
   - component: {fileID: 114247573424944118}
+  - component: {fileID: 114619318618106946}
   - component: {fileID: 114453472062665034}
   - component: {fileID: 114559968805599596}
   m_Layer: 0
@@ -442,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7926e745411d834438267935555c3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateDeathScreen: 0
 --- !u!114 &114290233347093990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -517,6 +519,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 3
+--- !u!114 &114619318618106946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e6dfb1c2274534f9af3710d886cc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 200
 --- !u!114 &114787560159768398
 MonoBehaviour:
   m_ObjectHideFlags: 1
