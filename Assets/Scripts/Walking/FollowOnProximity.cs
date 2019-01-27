@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowOnProximity : MonoBehaviour
+public class FollowOnProximity : MonoBehaviour, ITargetBehaviour
 {
-	public GameObject target;
+	public GameObject target { get; set; }
 	public float maxDistanceToStartFollowing = 2.5f;
 	public float minDistanceToStopFollowing = 7;
 	public string normalWalkingBehaviourName;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WalkTowardsTarget)), ExecuteInEditMode]
-public class Follow : MonoBehaviour
+public class Follow : MonoBehaviour, ITargetBehaviour
 {
-	public GameObject target;
+	public GameObject target { get; set; }
 
 
 	private WalkTowardsTarget walkTowardsTargetBehaviour;
