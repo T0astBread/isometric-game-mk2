@@ -364,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   causeOfDeath: For whatever reason
+  darkBackdropPrefab: {fileID: 1599312163455534, guid: c0a7c6f36a481db449f6d630586a1699,
+    type: 2}
 --- !u!114 &114975002492743728
 MonoBehaviour:
   m_ObjectHideFlags: 1

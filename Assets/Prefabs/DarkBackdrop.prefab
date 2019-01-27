@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4526384459236674}
   - component: {fileID: 212093981991134046}
+  - component: {fileID: 114766743954816888}
   m_Layer: 0
   m_Name: DarkBackdrop
   m_TagString: Untagged
@@ -40,6 +41,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114766743954816888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599312163455534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1906fd86a2f7844ab3ea95cb1044c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0}
+  maxDistance: 0
 --- !u!212 &212093981991134046
 SpriteRenderer:
   m_ObjectHideFlags: 1
