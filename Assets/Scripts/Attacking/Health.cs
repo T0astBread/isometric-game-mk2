@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
 		var death = GetComponent<Death>();
 		if(death != null)
 		{
-			death.Die();
+			death.Die("Died in battle");
 		}
 	}
 }
