@@ -39,7 +39,7 @@ public class Death : MonoBehaviour
 
 	private void SendDieTrigger()
 	{
-		this.animator.SetTrigger("die");
+		this.animator.SetBool("is_dead", true);
 	}
 
 	private void ActivateDeathScreen(string causeOfDeath)
