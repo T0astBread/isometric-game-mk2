@@ -41,6 +41,9 @@ public class DeathScreen : MonoBehaviour
 	public void ChangeCauseOfDeath(string newValue)
 	{
 		this.causeOfDeath = newValue;
-		this.causeOfDeathLabel.text = this.causeOfDeath;
+		if(this.causeOfDeathLabel != null)
+		{
+			this.causeOfDeathLabel.text = this.causeOfDeath;
+		}
 	}
 }
