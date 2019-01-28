@@ -11,7 +11,7 @@ public class RestartOnKeyPress : MonoBehaviour
 	{
 		if (Input.GetKeyUp(this.key))
 		{
-			SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
+			SceneManager.LoadScene(gameObject.scene.name, LoadSceneMode.Single);
 		}
 	}
 }
