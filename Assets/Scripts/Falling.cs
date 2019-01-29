@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Falling : MonoBehaviour
 {
+	private const float DEATH_TIMEOUT = .1f;
+
 	private Animator animator;
 	private Death deathBehaviour;
 	private int groundTilesTouched = 0;
@@ -31,10 +33,31 @@ public class Falling : MonoBehaviour
 
 			if (this.groundTilesTouched == 0)
 			{
-				this.animator.SetBool("is_falling", true);
-				this.animator.IncrementCounter("movement_locks");
-				this.deathBehaviour.Die("Consumed by the depths");
+				StartCoroutine(StartDeathTimer());
 			}
 		}
+	}
+
+	private IEnumerator StartDeathTimer()
+	{
+		Debug.Log(gameObject.name + " is not grounded - starting death timer");
+
+		float waitStartTime = Time.time;
+		yield return new WaitUntil(() => Time.time - waitStartTime > DEATH_TIMEOUT || this.groundTilesTouched > 0);
+
+		Debug.Log("Death timer on " + gameObject.name + " stopped");
+
+		if (this.groundTilesTouched == 0)
+		{
+			Debug.Log(gameObject.name + " has not touched ground since the start of the death timer - it will die now");
+			Die();
+		}
+	}
+
+	private void Die()
+	{
+		this.animator.SetBool("is_falling", true);
+		this.animator.IncrementCounter("movement_locks");
+		this.deathBehaviour.Die("Consumed by the depths");
 	}
 }

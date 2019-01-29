@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 114619318618106946}
   - component: {fileID: 114453472062665034}
   - component: {fileID: 114559968805599596}
+  - component: {fileID: 114613579675630340}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -331,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c44ff1283adb447b5e81280ed664ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   maxDistanceToStartFollowing: 2.5
   minDistanceToStopFollowing: 7
   normalWalkingBehaviourName: RandomWalk
@@ -384,7 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db2f30bedafe454092a8b2a6c930c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   minDistanceForAttack: 1.5
 --- !u!114 &114188416845358594
 MonoBehaviour:
@@ -431,7 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5549dc2fa1c059d41aa3a3f40b0245f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &114247573424944118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,6 +517,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 3
+--- !u!114 &114613579675630340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923598773675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4458190c2bf90bb49a0a0c96a51c97c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObjectName: Player
 --- !u!114 &114619318618106946
 MonoBehaviour:
   m_ObjectHideFlags: 1

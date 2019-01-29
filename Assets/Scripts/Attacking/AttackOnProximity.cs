@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Attack)), RequireComponent(typeof(ChooseAttackType))]
-public class AttackOnProximity : MonoBehaviour
+public class AttackOnProximity : MonoBehaviour, ITargetBehaviour
 {
-	public GameObject target;
+	public GameObject target { get; set; }
 	public float minDistanceForAttack = 1.5f;
 	private float attackDelayMin = .1f;
 	private float attackDelayMax = .25f;

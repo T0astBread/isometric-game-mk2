@@ -19,7 +19,15 @@ public class ScoreKeeper : MonoBehaviour
 
 	void Start()
 	{
-		this.highScore = PlayerPrefs.GetInt("high_score");
+		if (GameObject.FindObjectsOfType<ScoreKeeper>().Length > 1)
+		{
+			GameObject.DestroyImmediate(gameObject);
+		}
+		else
+		{
+			DontDestroyOnLoad(gameObject);
+			this.highScore = PlayerPrefs.GetInt("high_score");
+		}
 	}
 
 	void OnDestroy()
@@ -60,7 +68,7 @@ public class ScoreKeeper : MonoBehaviour
 
 	private void UpdateHighScoreIfNeeded()
 	{
-		if(HighScoreIsOvertaken())
+		if (HighScoreIsOvertaken())
 		{
 			this.highScore = this.score;
 		}
