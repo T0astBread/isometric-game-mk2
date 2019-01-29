@@ -1,23 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(StartSceneOnKeyPress))]
 public class RestartOnKeyPress : MonoBehaviour
 {
-	public string key = "r";
-	public bool resetScore;
-
-	void Update()
+	void Start()
 	{
-		if (Input.GetKeyUp(this.key))
-		{
-			SceneManager.LoadScene(gameObject.scene.name, LoadSceneMode.Single);
-
-			if (this.resetScore)
-			{
-				GameObject.FindObjectOfType<ScoreKeeper>().ResetScore();
-			}
-		}
+		GetComponent<StartSceneOnKeyPress>().sceneName = gameObject.scene.name;
 	}
 }
